@@ -46,7 +46,7 @@ set container name bind volume zones source '/config/containers/bind/config/zone
 set container name matchbox environment TZ value "${SECRET_TIMEZONE}"
 set container name matchbox arguments '-address=0.0.0.0:80 -log-level=debug'
 set container name matchbox cap-add 'net-bind-service'
-set container name matchbox image 'quay.io/poseidon/matchbox:v0.10.0'
+set container name matchbox image 'quay.io/poseidon/matchbox:v0.11.0'
 set container name matchbox memory '0'
 set container name matchbox network containers address '172.16.16.4'
 set container name matchbox shared-memory '0'
