@@ -13,6 +13,8 @@ set system login user vyos authentication public-keys monosense-okd key "${SECRE
 set system login user vyos authentication public-keys monosense-okd type 'ssh-ed25519'
 set system login user vyos authentication public-keys wsl key "${SECRET_SSH_KEY_WSL}"
 set system login user vyos authentication public-keys wsl type 'ssh-ed25519'
+set system login user vyos authentication public-keys p53 key "${SECRET_SSH_KEY_P53}"
+set system login user vyos authentication public-keys p53 type 'ssh-ed25519'
 
 set system name-server "${SECRET_ISP_DNS1}"
 set system name-server "${SECRET_ISP_DNS2}"
