@@ -111,7 +111,7 @@
 # CI
 !/.github/
 /.github/*
-!/.github/renovate.json
+!/.github/renovate.json5
 !/.github/workflows/
 /.github/workflows/*
 !/.github/workflows/renovate.yaml
