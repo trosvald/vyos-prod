@@ -1,0 +1,39 @@
+; Make sure to update the epoch time in the SOA records so coreDNS picks up the changes automatically
+; https://www.epochconverter.com/
+
+; SOA Records
+$${escapeThis}TTL 3600
+$${escapeThis}ORIGIN 16.172.in-addr.arpa.
+@ 3600 IN SOA gateway.${SECRET_DOMAIN0}. gateway.${SECRET_DOMAIN0}. (
+  1688802645         ; serial number (epoch timestamp)
+  7200               ; refresh period
+  3600               ; retry period
+  1209600            ; expire time
+  3600               ; minimum ttl
+)
+
+; NS Records
+@                          IN  NS  gateway.${SECRET_DOMAIN0}.
+
+; Reset origin
+$ORIGIN in-addr.arpa.
+
+; MGMT
+254.10.16.172              IN  PTR gateway.${SECRET_DOMAIN0}.
+
+; SERVERS
+
+
+; HOME
+
+
+; IOT
+
+
+; CCTV
+
+
+; WIREGUARD
+
+
+; CONTAINERS
