@@ -12,8 +12,8 @@
 mkdir -p /tmp/bind/cache
 sudo chown -R 104 /tmp/bind/cache
 mkdir -p /config/tftpboot
-curl -L -o /config/tftpboot/ipxe.efi http://boot.ipxe.org/ipxe.efi
-curl -L -o /config/tftpboot/undionly.kpxe http://boot.ipxe.org/undionly.kpxe
+# curl -L -o /config/tftpboot/ipxe.efi http://boot.ipxe.org/ipxe.efi
+# curl -L -o /config/tftpboot/undionly.kpxe http://boot.ipxe.org/undionly.kpxe
 sudo chown -R tftp:tftp /config/tftpboot/
 mkdir -p /tmp/onepassword/data
 chown -R 999 /tmp/onepassword/data
