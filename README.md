@@ -3,7 +3,7 @@
 <img src="https://vyos.io/wp-content/themes/vyos_theme/images/main/vyos-logo.svg" align="center" width="144px" height="144px"/>
 
 ### My VyOS IaC configuration
-
+Forked from [Budimanjojo](https://github.com/budimanjojo/vyos-config) VyOS Config
 </div>
 
 ## :book:&nbsp; Overview
@@ -27,7 +27,7 @@ commit
 Once you're done, connect your workstation to the `eth1` and set a static IP in the `192.168.10.1/24` range.
 Then you can run [bootstrap.sh](./bootstrap.sh) and follow the instruction on your screen:
 ```
-bash <(curl -s https://raw.githubusercontent.com/budimanjojo/vyos-config/main/bootstrap.sh)
+bash <(curl -s https://raw.githubusercontent.com/trosvald/vyos-prod/main/bootstrap.sh)
 ```
 
 The bootstrap script will:
@@ -54,3 +54,4 @@ A lot of inspiration in this repository came from:
 
 - [bjw-s](https://github.com/bjw-s/vyos-config)
 - [scotte](https://github.com/szinn/vyos-config)
+- [Budimanjojo](https://github.com/budimanjojo/vyos-config)
