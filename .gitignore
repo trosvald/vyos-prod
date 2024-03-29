@@ -65,7 +65,7 @@
 /containers/blocky/*
 !/containers/blocky/config/
 /containers/blocky/config/*
-!/containers/blocky/config/config.yaml
+!/containers/blocky/config/config.yml
 
 !/containers/dnsdist/
 /containers/dnsdist/*
