@@ -1,6 +1,10 @@
 #!/bin/vbash
 # shellcheck disable=all
 
+set interfaces ethernet eth0 hw-id '98:fa:9b:36:bc:ca'
+set interfaces ethernet eth1 hw-id '8c:dc:d4:a8:42:dc'
+set interfaces ethernet eth2 hw-id '8c:dc:d4:a8:42:dd'
+
 set interfaces bonding bond0 address '172.16.10.254/24'
 set interfaces bonding bond0 description 'MGMT'
 set interfaces bonding bond0 hash-policy 'layer2'
