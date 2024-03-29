@@ -61,6 +61,12 @@
 !/containers/bind/config/zones/db.*.arpa
 !/containers/bind/config/zones/db.{{*}}
 
+!/containers/blocky/
+/containers/blocky/*
+!/containers/blocky/config/
+/containers/blocky/config/*
+!/containers/blocky/config/config.yaml
+
 !/containers/dnsdist/
 /containers/dnsdist/*
 !/containers/dnsdist/config/
