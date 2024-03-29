@@ -10,7 +10,7 @@
 # Fix for containers requiring a custom user/group id
 # and Vyos not preserving file perms on upgrade
 mkdir -p /tmp/bind/cache
-sudo chown -R messagebus /tmp/bind/cache
+sudo chown -R 104 /tmp/bind/cache
 mkdir -p /config/tftpboot
 # curl -L -o /config/tftpboot/ipxe.efi http://boot.ipxe.org/ipxe.efi
 # curl -L -o /config/tftpboot/undionly.kpxe http://boot.ipxe.org/undionly.kpxe

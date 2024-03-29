@@ -46,7 +46,7 @@ controls {
 
 zone "${SECRET_DOMAIN0}." {
   type master;
-  file "/etc/bind/zones/db.${SECRET_DOMAIN0}";
+  file "/var/lib/bind/db.${SECRET_DOMAIN0}";
   journal "/var/cache/bind/db.${SECRET_DOMAIN0}.jnl";
   allow-transfer {
     key "externaldns";
@@ -58,7 +58,7 @@ zone "${SECRET_DOMAIN0}." {
 
 zone "${SECRET_DOMAIN1}." {
   type master;
-  file "/etc/bind/zones/db.${SECRET_DOMAIN1}";
+  file "/var/lib/bind/db.${SECRET_DOMAIN1}";
   journal "/var/cache/bind/db.${SECRET_DOMAIN1}.jnl";
   allow-transfer {
     key "externaldns";
@@ -70,7 +70,7 @@ zone "${SECRET_DOMAIN1}." {
 
 zone "${SECRET_DOMAIN2}." {
   type master;
-  file "/etc/bind/zones/db.${SECRET_DOMAIN2}";
+  file "/var/lib/bind/db.${SECRET_DOMAIN2}";
   journal "/var/cache/bind/db.${SECRET_DOMAIN2}.jnl";
   allow-transfer {
     key "externaldns";
@@ -80,17 +80,6 @@ zone "${SECRET_DOMAIN2}." {
   };
 };
 
-zone "${SECRET_DOMAIN2}." {
-  type master;
-  file "/etc/bind/zones/db.${SECRET_DOMAIN2}";
-  journal "/var/cache/bind/db.${SECRET_DOMAIN2}.jnl";
-  allow-transfer {
-    key "externaldns";
-  };
-  update-policy {
-    grant externaldns zonesub ANY;
-  };
-};
 
 zone "16.172.in-addr.arpa." {
   type master;
