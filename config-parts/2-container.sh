@@ -7,7 +7,7 @@ set container network containers prefix '172.16.16.0/24'
 
 # Adguard
 set container name adguard cap-add 'net-bind-service'
-set container name adguard image 'docker.io/adguard/adguardhome:v0.107.47'
+set container name adguard image 'docker.io/adguard/adguardhome:v0.107.48'
 set container name adguard memory '0'
 set container name adguard environment TZ value "${SECRET_TIMEZONE}"
 set container name adguard network containers address '172.16.16.2'
