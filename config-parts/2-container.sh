@@ -136,7 +136,7 @@ set container name smtp-relay volume smtp-relay-config source '/config/container
 
 # HAPROXY PROD K8S
 set container name prod-k8s-api environment TZ value "${SECRET_TIMEZONE}"
-set container name prod-k8s-api image 'docker.io/library/haproxy:2.9.6'
+set container name prod-k8s-api image 'docker.io/library/haproxy:2.9.7'
 set container name prod-k8s-api memory '0'
 set container name prod-k8s-api network containers address '172.16.16.11'
 set container name prod-k8s-api restart 'on-failure'
@@ -147,7 +147,7 @@ set container name prod-k8s-api volume config source '/config/containers/haprod/
 
 # HAPROXY DEV K8S
 set container name dev-k8s-api environment TZ value "${SECRET_TIMEZONE}"
-set container name dev-k8s-api image 'docker.io/library/haproxy:2.9.6'
+set container name dev-k8s-api image 'docker.io/library/haproxy:2.9.7'
 set container name dev-k8s-api memory '0'
 set container name dev-k8s-api network containers address '172.16.16.12'
 set container name dev-k8s-api restart 'on-failure'
