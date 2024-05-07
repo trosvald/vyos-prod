@@ -1,16 +1,16 @@
 #!/bin/vbash
 # shellcheck disable=all
 
-#set service dhcp-server dynamic-dns-update
+
 set service dhcp-server global-parameters 'option system-arch code 93 = unsigned integer 16;'
-# set service dhcp-server global-parameters 'option omada-address code 138 = ip-address;'
-#set service dhcp-server global-parameters 'key ddnsupdate { algorithm hmac-sha256; secret ${SECRET_DDNS_UPDATE_KEY}; };'
-#set service dhcp-server global-parameters 'zone ${SECRET_DOMAIN00}. { primary 172.16.16.3; key ddnsupdate; }'
-#set service dhcp-server global-parameters 'ddns-domainname &quot;.&quot;;'
-#set service dhcp-server global-parameters 'ddns-rev-domainname &quot;in-addr.arpa.&quot;;'
-#set service dhcp-server global-parameters 'zone in-addr.arpa. { primary 172.16.16.3; key ddnsupdate; }'
-#set service dhcp-server global-parameters 'zone 16.172.in-addr.arpa. { primary 172.16.16.3; key ddnsupdate; }'
-#set service dhcp-server global-parameters 'update-optimization false;'
+set service dhcp-server global-parameters 'allow bootp;'
+set service dhcp-server global-parameters 'allow booting;'
+set service dhcp-server global-parameters 'next-server 172.16.10.254;'
+set service dhcp-server global-parameters 'if exists user-class and option user-class = &quot;iPXE&quot; {'
+set service dhcp-server global-parameters 'filename &quot;http://172.16.16.4/boot.ipxe&quot;;'
+set service dhcp-server global-parameters '} else {'
+set service dhcp-server global-parameters 'filename &quot;undionly.kpxe&quot;;'
+set service dhcp-server global-parameters '}'
 set service dhcp-server host-decl-name
 set service dhcp-server hostfile-update
 
@@ -56,29 +56,18 @@ set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 name-s
 set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 range 0 start '172.16.11.200'
 set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 range 0 stop '172.16.11.253'
 
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'allow bootp;'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'allow booting;'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'next-server 172.16.10.254;'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'if exists user-class and option user-class = &quot;iPXE&quot; {'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'filename &quot;http://172.16.16.4/boot.ipxe&quot;;'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters '} else {'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters 'filename &quot;ipxe.efi&quot;;'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 subnet-parameters '}'
-
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m0 ip-address '172.16.11.10'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m0 mac-address '6c:4b:90:27:2d:5b'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m1 ip-address '172.16.11.11'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m1 mac-address '6c:4b:90:27:2e:a5'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m2 ip-address '172.16.11.12'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-m2 mac-address '6c:4b:90:27:2e:11'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w0 ip-address '172.16.11.13'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w0 mac-address 'e4:1d:79:67:75:95'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w1 ip-address '172.16.11.14'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w1 mac-address 'e4:1d:85:75:d8:73'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w2 ip-address '172.16.11.15'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w2 mac-address '7c:fe:90:a2:c5:90'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w3 ip-address '172.16.11.16'
-set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping prod-w3 mac-address 'ec:0d:9a:00:27:90'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m0 ip-address '172.16.11.10'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m0 mac-address 'ec:0d:9a:00:27:90'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m1 ip-address '172.16.11.11'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m1 mac-address 'ec:0d:9a:02:85:30'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m2 ip-address '172.16.11.12'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping m2 mac-address 'e4:1d:7a:67:a5:d4'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w0 ip-address '172.16.11.13'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w0 mac-address 'e4:1d:85:75:d8:73'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w1 ip-address '172.16.11.14'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w1 mac-address 'e4:1d:79:67:75:95'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w2 ip-address '172.16.11.15'
+set service dhcp-server shared-network-name SERVERS subnet 172.16.11.0/24 static-mapping w2 mac-address '7c:fe:90:a2:c5:90'
 
 # IOT
 set service dhcp-server shared-network-name IOT authoritative
