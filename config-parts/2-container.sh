@@ -110,7 +110,7 @@ set container name onepassword-sync volume data source '/tmp/onepassword/data'
 
 # Blocky
 set container name blocky environment TZ value "${SECRET_TIMEZONE}"
-set container name blocky image 'ghcr.io/0xerr0r/blocky:v0.23'
+set container name blocky image 'ghcr.io/0xerr0r/blocky:v0.24'
 set container name blocky memory '0'
 set container name blocky network containers address '172.16.16.9'
 set container name blocky restart 'on-failure'
